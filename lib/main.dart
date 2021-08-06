@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 
 import 'article.dart';
+import 'detail_page.dart';
 
 void main() {
   runApp(MyApp());
@@ -18,6 +19,9 @@ class MyApp extends StatelessWidget {
         initialRoute: NewsListPage.routeName,
         routes: {
           NewsListPage.routeName: (context) => NewsListPage(),
+          ArticleDetailPage.routeName: (context) => ArticleDetailPage(
+                article: ModalRoute.of(context)?.settings.arguments as Article,
+              ),
         });
   }
 }
@@ -57,5 +61,9 @@ Widget _buildArticleItem(BuildContext context, Article article) {
     ),
     title: Text(article.title),
     subtitle: Text(article.author),
+    onTap: () {
+      Navigator.pushNamed(context, ArticleDetailPage.routeName,
+          arguments: article);
+    },
   );
 }
