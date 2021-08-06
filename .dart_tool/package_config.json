@@ -134,13 +134,19 @@
       "languageVersion": "2.12"
     },
     {
+      "name": "webview_flutter",
+      "rootUri": "file:///Users/rizki/Developer/flutter/.pub-cache/hosted/pub.dartlang.org/webview_flutter-2.0.10",
+      "packageUri": "lib/",
+      "languageVersion": "2.12"
+    },
+    {
       "name": "dicoding_news_app",
       "rootUri": "../",
       "packageUri": "lib/",
       "languageVersion": "2.12"
     }
   ],
-  "generated": "2021-08-04T15:39:53.895799Z",
+  "generated": "2021-08-06T08:36:30.202093Z",
   "generator": "pub",
   "generatorVersion": "2.14.0-74.0.dev"
 }

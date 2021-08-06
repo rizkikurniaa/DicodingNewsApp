@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:webview_flutter/webview_flutter.dart';
 
 import 'article.dart';
 
@@ -43,15 +44,38 @@ class ArticleDetailPage extends StatelessWidget {
                     style: TextStyle(fontSize: 16),
                   ),
                   SizedBox(height: 10),
-                  RaisedButton(
+                  ElevatedButton(
                     child: Text('Read more'),
-                    onPressed: () {},
+                    onPressed: () {
+                      Navigator.pushNamed(context, ArticleWebView.routeName,
+                          arguments: article.url);
+                    },
                   ),
                 ],
               ),
             ),
           ],
         ),
+      ),
+    );
+  }
+}
+
+class ArticleWebView extends StatelessWidget {
+  static const routeName = '/article_web';
+
+  final String url;
+
+  const ArticleWebView({required this.url});
+
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(
+      appBar: AppBar(
+        title: Text('News App'),
+      ),
+      body: WebView(
+        initialUrl: url,
       ),
     );
   }
